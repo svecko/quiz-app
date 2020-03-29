@@ -3,8 +3,10 @@ const nextButton = document.getElementById('next-btn');
 const questionContainerElement = document.getElementById('question-container');
 const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
+const scoreElement = document.getElementById('score');
 
 let shuffledQuestions, currentQuestionIndex;
+let score;
 
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () => {
@@ -14,8 +16,10 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide');
+  scoreElement.classList.add('hide');
   shuffledQuestions = questions.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
+  score = 0;
   questionContainerElement.classList.remove('hide');
   setNextQuestion();
 }
@@ -50,6 +54,9 @@ function resetState() {
 function selectAnswer(e) {
   const selectedButton = e.target;
   const correct = selectedButton.dataset.correct;
+  if (correct) {
+    score++;
+  }
   setStatusClass(document.body, correct);
   Array.from(answerButtonsElement.children).forEach(button => {
     setStatusClass(button, button.dataset.correct);
@@ -57,8 +64,23 @@ function selectAnswer(e) {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove('hide');
   } else {
+    let scoreMessage;
+    let finalScore = (score / shuffledQuestions.length) * 100;
+
+    if (finalScore > 76) {
+      scoreEmoji = '🔥';
+      scoreMessage = '🔥 maš to💪!';
+    } else if (finalScore > 50) {
+      scoreMessage = '😏 ni slabo!';
+    } else {
+      scoreMessage = '💩 bolš k mta🙃!';
+    }
+
     startButton.innerText = 'Začni znova';
     startButton.classList.remove('hide');
+    questionContainerElement.classList.add('hide');
+    scoreElement.innerText = `Tvoj rezultat: ${score} od ${shuffledQuestions.length} ${scoreMessage}`;
+    scoreElement.classList.remove('hide');
   }
 }
 
@@ -78,30 +100,30 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: '2 + 2 ÷ 2 = ',
+    question: 'two zero two four:',
     answers: [
-      { text: '2', correct: false },
-      { text: '-12', correct: false },
-      { text: '3', correct: true },
-      { text: '22', correct: false }
+      { text: '0024', correct: true },
+      { text: '2044', correct: true },
+      { text: '2024', correct: true },
+      { text: '0044', correct: true }
     ]
   },
   {
-    question: '18 ÷ 3 × (5 - 4 + 1) =',
+    question: 'Marko, kako dela muca?',
     answers: [
-      { text: '3', correct: false },
-      { text: '91', correct: false },
-      { text: '-121', correct: false },
-      { text: '12', correct: true }
+      { text: 'Mijaw', correct: true },
+      { text: 'Wof Wof', correct: false },
+      { text: '✋', correct: false },
+      { text: '🐎', correct: false }
     ]
   },
   {
-    question: '5x - 6 = 3x - 8',
+    question: 'Fifi grize?',
     answers: [
-      { text: 'x = 1', correct: false },
-      { text: 'x = - 1', correct: true },
-      { text: 'x = 29', correct: false },
-      { text: 'x = -26', correct: false }
+      { text: 'Dobro', correct: false },
+      { text: 'Ne grize', correct: true },
+      { text: 'Oprosceno', correct: false },
+      { text: 'Fifi je 🐈', correct: false }
     ]
   }
 ];
