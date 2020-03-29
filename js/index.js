@@ -45,6 +45,7 @@ function showQuestion(question) {
 
 function resetState() {
   clearStatusClass(document.body);
+  clearStatusClass(scoreElement);
   nextButton.classList.add('hide');
   while (answerButtonsElement.firstChild) {
     answerButtonsElement.removeChild(answerButtonsElement.firstChild);
@@ -70,10 +71,13 @@ function selectAnswer(e) {
     if (finalScore > 76) {
       scoreEmoji = '🔥';
       scoreMessage = '🔥 maš to💪!';
+      scoreElement.classList.add('correct');
     } else if (finalScore > 50) {
       scoreMessage = '😏 ni slabo!';
+      scoreElement.classList.add('neutral');
     } else {
       scoreMessage = '💩 bolš k mta🙃!';
+      scoreElement.classList.add('wrong');
     }
 
     startButton.innerText = 'Začni znova';
@@ -95,6 +99,7 @@ function setStatusClass(element, correct) {
 
 function clearStatusClass(element) {
   element.classList.remove('correct');
+  element.classList.remove('neutral');
   element.classList.remove('wrong');
 }
 
