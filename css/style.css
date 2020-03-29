@@ -12,6 +12,7 @@
   --dark-blue: hsl(217, 71%, 53%);
   --yellow: hsl(48, 100%, 67%);
   --grey: hsl(0, 0%, 14%);
+  --light-grey: hsl(0, 0%, 86%);
   --white: hsl(0, 0%, 96%);
   --light-white: hsl(0, 0%, 100%);
 }
@@ -50,7 +51,19 @@ h1 {
 p {
   text-align: center;
   font-size: 1rem;
-  font-weight: 300;
+  font-weight: 700;
+}
+
+p.correct {
+  color: var(--green);
+}
+
+p.neutral {
+  color: var(--blue);
+}
+
+p.wrong {
+  color: var(--red);
 }
 
 span {
@@ -64,7 +77,7 @@ span {
   background-color: none;
   border-radius: 12px;
   background-color: var(--white);
-  padding: 60px;
+  padding: 60px 48px 48px 60px;
 }
 
 .btn-grid {
