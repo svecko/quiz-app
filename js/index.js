@@ -80,28 +80,28 @@ const questions = [
   {
     question: '2 + 2 ÷ 2 = ',
     answers: [
-      { text: 'a) 2', correct: false },
-      { text: 'b) -12', correct: false },
-      { text: 'c) 3', correct: true },
-      { text: 'd) 22', correct: false }
+      { text: '2', correct: false },
+      { text: '-12', correct: false },
+      { text: '3', correct: true },
+      { text: '22', correct: false }
     ]
   },
   {
     question: '18 ÷ 3 × (5 - 4 + 1) =',
     answers: [
-      { text: 'a) 3', correct: false },
-      { text: 'b) 91', correct: false },
-      { text: 'c) -121', correct: false },
-      { text: 'd) 12', correct: true }
+      { text: '3', correct: false },
+      { text: '91', correct: false },
+      { text: '-121', correct: false },
+      { text: '12', correct: true }
     ]
   },
   {
     question: '5x - 6 = 3x - 8',
     answers: [
-      { text: 'a) x = 1', correct: false },
-      { text: 'b) x = - 1', correct: true },
-      { text: 'c) x = 29', correct: false },
-      { text: 'd) x = -26', correct: false }
+      { text: 'x = 1', correct: false },
+      { text: 'x = - 1', correct: true },
+      { text: 'x = 29', correct: false },
+      { text: 'x = -26', correct: false }
     ]
   }
 ];
