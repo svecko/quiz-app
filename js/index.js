@@ -72,7 +72,7 @@ function selectAnswer(e) {
       scoreEmoji = '🔥';
       scoreMessage = '🔥 maš to💪!';
       scoreElement.classList.add('correct');
-    } else if (finalScore > 50) {
+    } else if (finalScore > 49) {
       scoreMessage = '😏 ni slabo!';
       scoreElement.classList.add('neutral');
     } else {
@@ -114,21 +114,30 @@ const questions = [
     ]
   },
   {
-    question: 'Marko, kako dela muca?',
+    question: 'V katero plast spada aplikacija Dropbox?',
     answers: [
-      { text: 'Mijaw', correct: true },
-      { text: 'Wof Wof', correct: false },
-      { text: '✋', correct: false },
-      { text: '🐎', correct: false }
+      { text: 'IaaS', correct: false },
+      { text: 'PaaS', correct: false },
+      { text: 'SaaS', correct: true },
+      { text: 'BaaS', correct: false }
     ]
   },
   {
-    question: 'Fifi grize?',
+    question: 'Koliko plasti vsebuje Cloud Computing?',
     answers: [
-      { text: 'Dobro', correct: false },
-      { text: 'Ne grize', correct: true },
-      { text: 'Oprosceno', correct: false },
-      { text: 'Fifi je 🐈', correct: false }
+      { text: '5', correct: false },
+      { text: '3', correct: true },
+      { text: '4', correct: true },
+      { text: '2', correct: false }
+    ]
+  },
+  {
+    question: 'Kdo leta 2006 izda Elastic Compute Cloud?',
+    answers: [
+      { text: 'Heroku', correct: false },
+      { text: 'Elon Musk', correct: false },
+      { text: 'Google', correct: false },
+      { text: 'Amazon', correct: true }
     ]
   }
 ];
