@@ -31,7 +31,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question;
-  question.answers.forEach(answer => {
+  question.answers.forEach((answer) => {
     const button = document.createElement('button');
     button.innerText = answer.text;
     button.classList.add('btn');
@@ -59,7 +59,7 @@ function selectAnswer(e) {
     score++;
   }
   setStatusClass(document.body, correct);
-  Array.from(answerButtonsElement.children).forEach(button => {
+  Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct);
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -70,13 +70,13 @@ function selectAnswer(e) {
 
     if (finalScore > 76) {
       scoreEmoji = '🔥';
-      scoreMessage = '🔥 maš to💪!';
+      scoreMessage = '🔥 odlično!';
       scoreElement.classList.add('correct');
     } else if (finalScore > 49) {
       scoreMessage = '😏 ni slabo!';
       scoreElement.classList.add('neutral');
     } else {
-      scoreMessage = '💩 bolš k mta🙃!';
+      scoreMessage = '💩 slabo!';
       scoreElement.classList.add('wrong');
     }
 
@@ -105,39 +105,42 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: 'two zero two four:',
+    question: 'Kje se nahajajo registri?',
     answers: [
-      { text: '0024', correct: true },
-      { text: '2044', correct: true },
-      { text: '2024', correct: true },
-      { text: '0044', correct: true }
-    ]
+      { text: 'V disku', correct: false },
+      { text: 'V CPE', correct: true },
+    ],
   },
   {
-    question: 'V katero plast spada aplikacija Dropbox?',
+    question: 'Med katero kategorijo programskih jezikov spada zbirni jezik?',
     answers: [
-      { text: 'IaaS', correct: false },
-      { text: 'PaaS', correct: false },
-      { text: 'SaaS', correct: true },
-      { text: 'BaaS', correct: false }
-    ]
+      { text: 'Med nizke programske jezike', correct: true },
+      { text: 'Med visoke programske jezike', correct: false },
+    ],
   },
   {
-    question: 'Koliko plasti vsebuje Cloud Computing?',
+    question: 'Koliko različnih velikosti registrov poznamo?',
     answers: [
-      { text: '5', correct: false },
-      { text: '3', correct: true },
+      { text: '12', correct: false },
       { text: '4', correct: true },
-      { text: '2', correct: false }
-    ]
+      { text: '6', correct: false },
+      { text: '2', correct: false },
+    ],
   },
   {
-    question: 'Kdo leta 2006 izda Elastic Compute Cloud?',
+    question: 'Ali poznamo več vrst registrov?',
     answers: [
-      { text: 'Heroku', correct: false },
-      { text: 'Elon Musk', correct: false },
-      { text: 'Google', correct: false },
-      { text: 'Amazon', correct: true }
-    ]
-  }
+      { text: 'Da', correct: true },
+      { text: 'Ne', correct: false },
+    ],
+  },
+  {
+    question: 'V katero kategorijo spada ukaz ADD?',
+    answers: [
+      { text: 'Logične operacije', correct: false },
+      { text: 'Računske operacije', correct: true },
+      { text: 'Primerjave', correct: false },
+      { text: 'Premikanje podatkov', correct: false },
+    ],
+  },
 ];
